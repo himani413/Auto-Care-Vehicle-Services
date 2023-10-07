@@ -13,12 +13,18 @@
 <%@ page import="java.util.ArrayList" %>
 
 <%
-        // Retrieve access_token and id_token from session attributes
+        // defining data to implement logout
         String introUrl = "https://api.asgardeo.io/t/orgqfac7/oauth2/introspect";
+		String post_logout_redirect_uri = "http://localhost:8080/Auto-Care-Vehicle-Services/index.jsp"; // changed
+		String client_id = "xvsKpS5yAgbX8qXOfRDeNI13Ul4a";
 
         String access_token = (String) request.getSession().getAttribute("access_token");
         String id_token = (String) request.getSession().getAttribute("id_token");
-        String jsonDataString = ""; // Initialize jsonDataString here
+        
+     // retriving session state from session attributes
+        String sessionState = (String) session.getAttribute("sessionState"); 
+        
+        String jsonDataString = ""; // Initialize jsonDataString 
 
 
         // Check if the tokens exist in the session
@@ -119,10 +125,14 @@
 		.navblock{display:flex;}
 		#welcome{margin-bottom:30px;}
 		#info{margin-bottom:30px;}
-		header{height:80px;}
+		
 		.navbar{height:70px;}
 		.navbar-brand{font-size: 25px;}
-		.nav-link{font-size:20px;}
+		.nav-link{font-size:20px;color:#b8b8b8}
+		.nav-link:hover{color:#d6d6d6;}
+		#logout-form {display: block;margin: 0 auto; }
+		#logout-btn{background-color:#774d78; color:#b8b8b8; font-size:20px; border:none;}
+		#logout-btn:hover{color:#d6d6d6;}
 	
 	</style>
 </head>
@@ -135,11 +145,7 @@
 			
 			<div class="navblock">
 			<ul class="navbar-nav" >
-			<!--passing the email into ervlet class to retrive all service records from this email.-->
-			<%
-    
-    			String useremail = (String) session.getAttribute("userEmail"); // Get the user's email from the session
-			%>
+			
 				<li><a href="<%=request.getContextPath()%>/new"
 					class="nav-link">New Reservation</a></li>
 			</ul>
@@ -151,7 +157,14 @@
 			
 			<div class="navblock" id="logout">
 			<ul class="navbar-nav">
-				<li><a href='index.jsp' class="nav-link">Logout</a></li>
+				<li>
+				<form id="logout-form" action="https://api.asgardeo.io/t/orgqfac7/oidc/logout" method="POST">
+				    <input type="hidden" id="client-id" name="client_id" value="<%= client_id %>">
+				    <input type="hidden" id="post-logout-redirect-uri" name="post_logout_redirect_uri" value="<%= post_logout_redirect_uri %>">
+				    <input type="hidden" id="state" name="state" value="<%= sessionState %>">
+				    <button id="logout-btn" type="submit">Logout</button>
+				</form>
+				</li>
 			</ul>
 			</div>
 			
@@ -191,8 +204,12 @@
 			<h3 class="text-center">Your Vehicle Service Reservations</h3>
 			<hr>
 			<div class="container text-left">
+				<%
+    
+    			String useremail = (String) session.getAttribute("userEmail"); // Get the user's email from the session
+				%>
 
-				<a href="<%=request.getContextPath()%>/list?email=<%=useremail%>" class="btn btn-success">Show My Reservations</a>
+				<a href="<%=request.getContextPath()%>/list?email=<%=useremail%>" class="btn btn-success">View My Reservations</a>
 			</div>
 			<br>
 			<table class="table table-bordered">

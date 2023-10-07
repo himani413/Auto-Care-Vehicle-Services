@@ -7,7 +7,7 @@
 	<title>Vehicle Service Reservation - Login</title>
 	<link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	
+
 	<style>
 	body {
     background: #fff;
@@ -86,7 +86,6 @@
 </head>
 <body class="app-login">
 
-	
 <section class="login-block">
     <div class="container">
         <div class="row">

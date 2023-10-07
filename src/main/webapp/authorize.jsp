@@ -10,20 +10,25 @@
 <%
     String code = request.getParameter("code");
     String sessionState = request.getParameter("session_state");
-
+    
+    // Set it as a session attribute
+    session.setAttribute("sessionState", sessionState); 
+    
     // Define the URL
     String url = "https://api.asgardeo.io/t/orgqfac7/oauth2/token";
     String client_Id = "xvsKpS5yAgbX8qXOfRDeNI13Ul4a";
     String client_secret = "O6PN9pU8TRYiukabCKno97x7kphL2UU4t5Kg7D9Q8v4a";
     String redirect_uri = "http://localhost:8080/Auto-Care-Vehicle-Services/authorize.jsp";
+    
 
     // Define the request body parameters
     String postData = "code=" + URLEncoder.encode(code, "UTF-8");
+   
     postData += "&grant_type=authorization_code";
     postData += "&client_id=" + URLEncoder.encode(client_Id, "UTF-8");
     postData += "&client_secret=" + URLEncoder.encode(client_secret, "UTF-8");
     postData += "&redirect_uri=" + URLEncoder.encode(redirect_uri, "UTF-8");
-
+    
     // Create a URL object and open a connection
     URL obj = new URL(url);
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
