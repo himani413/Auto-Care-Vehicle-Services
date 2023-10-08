@@ -3,5 +3,5 @@ A dynamic web application for vehicle service reservation while considering and 
 
 ### Blog Articles
 
-- [Read my first blog article: Building Trust with OpenID Connect Protocols]([https://yourblog.com/first-article](https://medium.com/@pereradinithi99/building-trust-with-openid-connect-protocols-39ddb71ae12f)https://medium.com/@pereradinithi99/building-trust-with-openid-connect-protocols-39ddb71ae12f)
-- [Explore the second blog article: Defending Against Threats!]([https://yourblog.com/second-article](https://medium.com/@pereradinithi99/defending-against-threats-37e24d55394d)https://medium.com/@pereradinithi99/defending-against-threats-37e24d55394d)
+- [Read my first blog article: Building Trust with OpenID Connect Protocols](https://medium.com/@pereradinithi99/building-trust-with-openid-connect-protocols-39ddb71ae12f)
+- [Explore the second blog article: Defending Against Threats!](https://medium.com/@pereradinithi99/defending-against-threats-37e24d55394d)
