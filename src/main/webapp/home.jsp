@@ -229,13 +229,13 @@
 					<c:forEach var="vehicleService" items="${listVehicleSerivice}">
 
 						<tr>
-							<td><c:out value="${vehicleService.booking_id}" /></td>
-							<td><c:out value="${vehicleService.date}" /></td>
-							<td><c:out value="${vehicleService.time}" /></td>
-							<td><c:out value="${vehicleService.location}" /></td>
-							<td><c:out value="${vehicleService.vehicle_no}" /></td>
-							<td><c:out value="${vehicleService.mileage}" /></td>
-							<td><c:out value="${vehicleService.message}" /></td>
+							<td><c:out value="${vehicleService.booking_id}" escapeXml="true"/></td> <!-- use output encoding to safely display user-generated content -->
+							<td><c:out value="${vehicleService.date}" escapeXml="true"/></td>
+							<td><c:out value="${vehicleService.time}" escapeXml="true"/></td>
+							<td><c:out value="${vehicleService.location}" escapeXml="true"/></td>
+							<td><c:out value="${vehicleService.vehicle_no}" escapeXml="true"/></td>
+							<td><c:out value="${vehicleService.mileage}" escapeXml="true"/></td>
+							<td><c:out value="${vehicleService.message}" escapeXml="true"/></td>
 							<td><a href="delete?booking_id=<c:out value='${vehicleService.booking_id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>

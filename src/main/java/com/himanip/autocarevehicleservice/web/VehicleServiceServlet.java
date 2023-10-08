@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.himanip.autocarevehicleservice.bean.VehicleService;
 import com.himanip.autocarevehicleservice.dao.VehicleServiceDao;
+import org.apache.commons.text.StringEscapeUtils;
 
 /**
  * Servlet implementation class VehicleServiceServlet
@@ -84,17 +85,21 @@ public class VehicleServiceServlet extends HttpServlet {
 	private void insertVehicleService(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException 
 	{
    
+		// sanitizing the user inputs for escape any potentially harmful characters
+		//neutralizing the user inputs using escapeHtml4() method
+		String date = StringEscapeUtils.escapeHtml4(request.getParameter("date").replaceAll("'", "''")); 
 		
-		String date = request.getParameter("date");
+		String time = StringEscapeUtils.escapeHtml4(request.getParameter("time").replaceAll("'", "''"));
+	
+		String location = StringEscapeUtils.escapeHtml4(request.getParameter("location").replaceAll("'", "''"));
 		
-		String time = request.getParameter("time");
+		String vehicle_no = StringEscapeUtils.escapeHtml4(request.getParameter("vehicle_no").replaceAll("'", "''"));
 		
-		
-		String location = request.getParameter("location");
-		String vehicle_no = request.getParameter("vehicle_no");
 		int mileage = Integer.parseInt(request.getParameter("mileage"));
-		String message = request.getParameter("message");
-		String username = request.getParameter("username");
+		
+		String message = StringEscapeUtils.escapeHtml4(request.getParameter("message").replaceAll("'", "''"));
+
+		String username = StringEscapeUtils.escapeHtml4(request.getParameter("username").replaceAll("'", "''"));
 		
 		VehicleService newVehicleService = new VehicleService(date, time, location, vehicle_no, mileage, message, username);
 		

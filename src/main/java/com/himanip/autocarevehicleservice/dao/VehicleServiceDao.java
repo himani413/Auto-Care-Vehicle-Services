@@ -52,8 +52,7 @@ public class VehicleServiceDao {
 		try (Connection connection = getConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_VEHICLESERVICE_SQL)) {
 			java.sql.Date sqlDate = java.sql.Date.valueOf(vehicleService.getDate());
-	        preparedStatement.setDate(1, sqlDate);
-			
+	        preparedStatement.setDate(1, sqlDate);		
 			preparedStatement.setTime(2, Time.valueOf(vehicleService.getTime()));// Assuming 'getTime' returns a String in 'HH:mm:ss' format
 			preparedStatement.setString(3, vehicleService.getLocation());
 			preparedStatement.setString(4, vehicleService.getVehicle_no());
