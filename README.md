@@ -1,4 +1,8 @@
 # Auto Care Vehicle Services🚘
+<p align="center">
+  <img src="src/main/webapp/images/AutoCare.jpg" alt="Centered Image" width="350" height="350">
+</p>
+
 
 Welcome to Auto Care Vehicle Services, a secure and efficient web application designed to streamline vehicle service reservations and management. 
 
