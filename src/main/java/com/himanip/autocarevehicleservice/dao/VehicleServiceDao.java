@@ -13,7 +13,7 @@ import com.himanip.autocarevehicleservice.bean.VehicleService;
 
 public class VehicleServiceDao {
 
-	private String jdbcURL = "jdbc:mysql://51.132.137.223:3306/isec_assessment2?useSSL=false";
+	private String jdbcURL = "jdbc:mysql://172.187.178.153:3306/isec_assessment2?useSSL=false";
 	private String jdbcUsername = "isec";
 	private String jdbcPassword = "EUHHaYAmtzbv";
 	private String jdbcDriver = "com.mysql.jdbc.Driver";
